@@ -19,6 +19,11 @@ describe User do
 
   it {should be_valid }
   
+  describe "remember token" do
+    before { @user.save }
+    its(:remember_token) { should_not be_blank }
+  end
+  
   describe "email address with mixed case" do
     let(:mixed_case_email) {"FooBar@Emails.CoM"}
     
